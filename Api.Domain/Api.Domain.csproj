@@ -17,6 +17,9 @@
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="System.IdentityModel.Tokens.Jwt" />
+    <None Remove="Dtos\Catetory\" />
+    <None Remove="Dtos\EntriesAmount\" />
+    <None Remove="Dtos\User\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dtos\" />
@@ -26,6 +29,9 @@
     <Folder Include="Models\" />
     <Folder Include="Interfaces\Repositories\" />
     <Folder Include="Security\" />
+    <Folder Include="Dtos\Category\" />
+    <Folder Include="Dtos\EntriesAmount\" />
+    <Folder Include="Dtos\User\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />

@@ -22,7 +22,7 @@
     <Folder Include="Context\" />
     <Folder Include="Implementation\" />
     <Folder Include="Mapping\" />
-    <Folder Include="Repositoty\" />
+    <Folder Include="Repository\" />
     <Folder Include="Seeds\" />
   </ItemGroup>
   <ItemGroup>
