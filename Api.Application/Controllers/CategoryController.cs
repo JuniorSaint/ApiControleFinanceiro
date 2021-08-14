@@ -18,10 +18,14 @@ namespace Api.Application.Controllers
             _service = service;
         }
 
-        [Authorize("Bearer")]
+    //    [Authorize("Bearer")]
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 var result = await _service.GetAll();
@@ -38,11 +42,15 @@ namespace Api.Application.Controllers
 
         }
 
-        [Authorize("Bearer")]
+   //     [Authorize("Bearer")]
         [HttpGet]
         [Route("{id}", Name = "GetById")]
         public async Task<ActionResult> Get(Guid id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 var result = await _service.Get(id);
@@ -60,10 +68,14 @@ namespace Api.Application.Controllers
         }
 
 
-        [Authorize("Bearer")]
+  //      [Authorize("Bearer")]
         [HttpPut]
         public async Task<ActionResult> Put([FromBody] CategoryDtoUpdate category)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 var result = await _service.Put(category);
@@ -80,10 +92,14 @@ namespace Api.Application.Controllers
             }
         }
 
-        [Authorize("Bearer")]
+      //  [Authorize("Bearer")]
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CategoryDtoCreate category)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 var result = await _service.Post(category);
@@ -100,10 +116,14 @@ namespace Api.Application.Controllers
             }
         }
 
-        [Authorize("Bearer")]
+      //  [Authorize("Bearer")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 return Ok(await _service.Delete(id));

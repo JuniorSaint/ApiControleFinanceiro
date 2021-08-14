@@ -11,21 +11,21 @@ namespace Api.Domain.Models
             set { _id = value; }
         }
 
-        private DateTime _createAt;
-        public DateTime CreateAt
+
+        private DateTime? _createdAt;
+        public DateTime? CreatedAt
         {
-            get { return _createAt; }
-            set
-            {
-                _createAt = value == null ? DateTime.UtcNow : value;
-            }
+
+            get { return _createdAt; }
+
+            set { _createdAt = (value == null ? DateTime.UtcNow : value); }
         }
 
-        private DateTime _updateAt;
-        public DateTime UpdateAt
+        private DateTime _updatedAt;
+        public DateTime UpdatedAt
         {
-            get { return _updateAt; }
-            set { _updateAt = value; }
+            get { return _updatedAt; }
+            set { _updatedAt = value; }
         }
     }
 }

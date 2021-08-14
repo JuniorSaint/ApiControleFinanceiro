@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Application.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class EntriesAmountController : ControllerBase
     {
         private EntriesAmountService _service { get; set; }
@@ -15,12 +17,16 @@ namespace Api.Application.Controllers
             _service = service;
         }
 
-
-        [Authorize("Bearer")]
+        
+      //  [Authorize("Bearer")]
         [HttpGet]
         [Route("{id}", Name = "GetEntriesWithId")]
         public async Task<ActionResult> Get(Guid id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 var result = await _service.Get(id);
@@ -37,10 +43,14 @@ namespace Api.Application.Controllers
         }
 
 
-        [Authorize("Bearer")]
+    //    [Authorize("Bearer")]
         [HttpPut]
         public async Task<ActionResult> Put([FromBody] EntriesAmountUpdate entries)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 var result = await _service.Put(entries);
@@ -57,10 +67,14 @@ namespace Api.Application.Controllers
             }
         }
 
-        [Authorize("Bearer")]
+  //     [Authorize("Bearer")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 return Ok(await _service.Delete(id));
@@ -71,10 +85,14 @@ namespace Api.Application.Controllers
             }
         }
 
-        [Authorize("Bearer")]
+   //     [Authorize("Bearer")]
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] EntriesAmountDtoCreate entries)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 var result = await _service.Post(entries);
@@ -94,10 +112,14 @@ namespace Api.Application.Controllers
         }
 
 
-        [Authorize("Bearer")]
+    //    [Authorize("Bearer")]
         [HttpGet]    
         public async Task<ActionResult> GetAll()
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
                 var result = await _service.GetAll();

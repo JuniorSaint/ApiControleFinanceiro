@@ -16,6 +16,8 @@ namespace Api.Data.Implementation
         public EntriesAmountImplementation(MyContext context) : base(context)
         {
             _dataset = context.Set<EntriesAmountEntity>();
-        }   
+        }
+
+ 
     }
 }

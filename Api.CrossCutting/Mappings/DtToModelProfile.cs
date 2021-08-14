@@ -1,5 +1,4 @@
-﻿using System;
-using Api.Domain.Dtos.Category;
+﻿using Api.Domain.Dtos.Category;
 using Api.Domain.Dtos.EntriesAmount;
 using Api.Domain.Dtos.User;
 using Api.Domain.Models;

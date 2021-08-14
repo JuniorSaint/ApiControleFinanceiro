@@ -1,6 +1,5 @@
 ﻿
 using Api.Domain.Interfaces.Services;
-using Api.Service.Service;
 using Api.Service.Services;
 using Microsoft.Extensions.DependencyInjection;
 

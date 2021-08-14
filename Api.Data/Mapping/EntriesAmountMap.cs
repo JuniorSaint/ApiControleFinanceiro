@@ -15,7 +15,7 @@ namespace Api.Data.Mapping
 
             builder.HasIndex(u => u.DateLaunch);
 
-            builder.HasOne(u => u.Category);
+            builder.HasOne(c => c.Category).WithMany(e => e.EntriesAmount);
         }
     }
 }

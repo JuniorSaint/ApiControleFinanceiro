@@ -11,6 +11,13 @@ namespace Api.CrossCutting.DependencyInjection
 {
     public class ConfigureRepository
     {
+
+        private static string Host = "localhost";
+        private static string User = "Junior";
+        private static string DBname = "ControleFinanceiro";
+        private static string Password = "123456";
+        private static string Port = "5432";
+
         public static void ConfigureDependenciesRepository(IServiceCollection serviceCollection)
         {
 
@@ -21,7 +28,7 @@ namespace Api.CrossCutting.DependencyInjection
 
 
             serviceCollection.AddDbContext<MyContext>(
-                 options => options.UseNpgsql("Server=localhost; Port=5432; Database=ControleFinanceiro; Uid=Junior; Pwd=123456")
+                 options => options.UseNpgsql($"Server={Host}; Port={Port}; Database={DBname}; Uid={User}; Pwd={Password}")
                  );
         }
     }

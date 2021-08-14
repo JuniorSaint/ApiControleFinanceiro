@@ -8,7 +8,7 @@ using Api.Domain.Interfaces.Services;
 using Api.Domain.Models;
 using AutoMapper;
 
-namespace Api.Service.Service
+namespace Api.Service.Services
 {
     public class UserService : IUserService
     {

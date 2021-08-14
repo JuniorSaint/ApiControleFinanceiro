@@ -14,7 +14,6 @@ namespace Api.Data.Mapping
             builder.HasKey(u => u.Id);
 
             builder.HasIndex(u => u.Email).IsUnique();
-
         }
     }
 }

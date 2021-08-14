@@ -17,11 +17,11 @@ namespace Api.Domain.Models
             set { _email = value; }
         }
 
-        private string _passWord;
-        public string PassWord
+        private string _password;
+        public string Password
         {
-            get { return _passWord; }
-            set { _passWord = value; }
+            get { return _password; }
+            set { _password = value; }
         }
         private bool _active;
         public bool Active 

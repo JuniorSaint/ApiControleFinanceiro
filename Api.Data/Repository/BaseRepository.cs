@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using Api.Data.Context;
 using Api.Domain.Entities;
@@ -32,10 +33,15 @@ namespace Api.Data.Repository
                 return true;
 
             }
-            catch (Exception)
+            catch (ArgumentException e)
             {
-                throw;
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
+        }
+
+        private bool StatusCode(int internalServerError, string message)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<bool> ExistAsync(Guid id)
