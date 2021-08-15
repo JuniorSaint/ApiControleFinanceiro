@@ -16,9 +16,13 @@ namespace Api.Data.Implementations
             _dataset = contex.Set<UserEntity>();
         }
 
-        public async Task<UserEntity> FindByLogin(string email)
+        public async Task<UserEntity> FindByLogin(string email, string password)
         {
-            return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email));
+            return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(password));
         }
     }
 }
+
+
+
+
