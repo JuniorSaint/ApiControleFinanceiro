@@ -1,4 +1,5 @@
 ﻿using Api.CrossCutting.DependencyInjection;
+using Api.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +35,15 @@ namespace Api.Application
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+
+            using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
+                                                            .CreateScope())
+                {
+                using (var context = service.ServiceProvider.GetService<MyContext>())
+                {
+                    context.Database.Migrate();
+                }
             }
 
             app.UseHttpsRedirection();
