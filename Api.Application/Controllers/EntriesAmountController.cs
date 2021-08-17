@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.EntriesAmount;
+using Api.Domain.Interfaces.Services;
 using Api.Service.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,8 +12,8 @@ namespace Api.Application.Controllers
     [ApiController]
     public class EntriesAmountController : ControllerBase
     {
-        private EntriesAmountService _service { get; set; }
-        public EntriesAmountController(EntriesAmountService service)
+        private IEntriesAmountService _service { get; set; }
+        public EntriesAmountController(IEntriesAmountService service)
         {
             _service = service;
         }

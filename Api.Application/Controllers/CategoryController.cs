@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.Category;
+using Api.Domain.Interfaces.Services;
 using Api.Service.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,8 +13,8 @@ namespace Api.Application.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private CategoryService _service { get; set; }
-        public CategoryController(CategoryService service)
+        private ICategoryService _service { get; set; }
+        public CategoryController(ICategoryService service)
         {
             _service = service;
         }

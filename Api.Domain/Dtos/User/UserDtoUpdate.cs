@@ -18,7 +18,7 @@ namespace Api.Domain.Dtos.User
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Senha do usuário é campo obrigatório")]
-        [Range(6, 8, ErrorMessage = "Quantidade de caracteres entre {1} e {2} ")]
+        [MinLength(6, ErrorMessage = "Quantidade mínima de  caracteres {1}")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Usuário ativo é campo obrigatório")]

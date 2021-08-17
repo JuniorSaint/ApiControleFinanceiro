@@ -13,7 +13,6 @@ namespace Api.Application.Controllers
     {
 
         private ILoginService _service;
-
         public LoginController(ILoginService service)
         {
             _service = service;
