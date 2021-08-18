@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Api.Data.Context;
 using Api.Domain.Interfaces.Repositories;
 using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Net;
 
 namespace Api.Data.Implementations
 {
@@ -19,22 +22,53 @@ namespace Api.Data.Implementations
 
         public async Task<UserEntity> FindByLogin(string email, string password)
         {
-            return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(password));
+            try
+            {
+                return await _dataset.FirstOrDefaultAsync(u => u.Email.Equals(email) && u.Password.Equals(password));
+            }
+            catch (ArgumentException )
+            {
+                throw;
+            }
         }
 
-        public Task<UserEntity> GetByEmail(string email)
+        public async Task<UserEntity> GetByEmail(string email)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return await _dataset.SingleOrDefaultAsync(u => u.Email.Equals(email));
+            }
+            catch (ArgumentException )
+            {
+                throw;
+            }
         }
 
-        public Task<IEnumerable<UserEntity>> SearchByEmail(string email)
+        public async Task<IEnumerable<UserEntity>> SearchByEmail(string email)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var result = await _context.Users.Where(x => x.Email.ToLower().Contains(email.ToLower())).ToListAsync();
+                return result;
+               
+            }
+            catch (ArgumentException )
+            {
+                throw;
+            }
         }
 
-        public Task<IEnumerable<UserEntity>> SearchByName(string name)
+        public async Task<IEnumerable<UserEntity>> SearchByName(string name)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var result = await _context.Users.Where(x => x.UserName.ToLower().Contains(name.ToLower())).ToListAsync();
+                return result;
+            }
+            catch (ArgumentException )
+            {
+                throw;
+            }
         }
     }
 }

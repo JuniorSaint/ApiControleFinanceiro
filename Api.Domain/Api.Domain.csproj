@@ -21,6 +21,7 @@
     <None Remove="Dtos\EntriesAmount\" />
     <None Remove="Dtos\User\" />
     <None Remove="AutoMapper" />
+    <None Remove="RijndaelEncryptDecrypt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dtos\" />

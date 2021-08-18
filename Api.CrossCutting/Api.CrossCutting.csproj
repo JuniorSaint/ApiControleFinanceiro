@@ -17,6 +17,7 @@
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="AutoMapper" />
+    <None Remove="RijndaelEncryptDecrypt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DependencyInjection\" />
