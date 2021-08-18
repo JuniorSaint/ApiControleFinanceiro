@@ -75,6 +75,8 @@ namespace Api.Application
                 paramsValidation.IssuerSigningKey = signingConfigurations.Key;
                 paramsValidation.ValidAudience = tokenConfigurations.Audience;
                 paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
+                paramsValidation.ValidateLifetime = true;
+                paramsValidation.ClockSkew = TimeSpan.Zero;
 
                 // Valida a assinatura de um token recebido
                 paramsValidation.ValidateIssuerSigningKey = true;

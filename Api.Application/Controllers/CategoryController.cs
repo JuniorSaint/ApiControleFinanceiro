@@ -2,8 +2,6 @@
 using System.Threading.Tasks;
 using Api.Domain.Dtos.Category;
 using Api.Domain.Interfaces.Services;
-using Api.Service.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -19,7 +17,7 @@ namespace Api.Application.Controllers
             _service = service;
         }
 
-    //    [Authorize("Bearer")]
+      // [Authorize("Bearer")]
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
