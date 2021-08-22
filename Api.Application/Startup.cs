@@ -52,6 +52,7 @@ namespace Api.Application
                 cfg.AddProfile(new ModelToEntityProfile());
             });
 
+            // configuração do Mapeamento
             IMapper mapper = config.CreateMapper();
             services.AddSingleton(mapper);
 
@@ -75,8 +76,6 @@ namespace Api.Application
                 paramsValidation.IssuerSigningKey = signingConfigurations.Key;
                 paramsValidation.ValidAudience = tokenConfigurations.Audience;
                 paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
-                paramsValidation.ValidateLifetime = true;
-                paramsValidation.ClockSkew = TimeSpan.Zero;
 
                 // Valida a assinatura de um token recebido
                 paramsValidation.ValidateIssuerSigningKey = true;

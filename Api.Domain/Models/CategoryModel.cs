@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Api.Domain.Models
 {
-    public class CategoryModel
+    public class CategoryModel : BaseModel
     {
         private string _description;
         public string Description

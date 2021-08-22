@@ -9,7 +9,7 @@ namespace Api.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         private ICategoryService _service { get; set; }
         public CategoryController(ICategoryService service)
